@@ -2,7 +2,7 @@ import org.yaml.snakeyaml.Yaml
 import java.net.URLClassLoader
 
 // Add SnakeYAML jar to classpath dynamically
-def jarFile = new File("${WORKSPACE}/jenkins-libs/yaml/snakeyaml-2.0.jar")
+def jarFile = new File("${WORKSPACE}/jenkis-libs/yaml/snakeyaml-2.0.jar")
 if (jarFile.exists()) {
     def loader = this.class.classLoader
     if (loader instanceof groovy.lang.GroovyClassLoader) {
