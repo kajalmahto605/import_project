@@ -1,0 +1,5 @@
+name: Jenkins
+tools:
+  - git
+  - docker
+  - maven
