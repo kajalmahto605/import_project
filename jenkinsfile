@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Parse YAML') {
+            steps {
+                script {
+                    def yamlText = """
+                        name: Jenkins
+                        tools:
+                          - git
+                          - docker
+                          - maven
+                    """
+
+                    def parser = load("jenkins-libs/yaml/parseYaml.groovy")
+                    def result = parser.parseYaml(yamlText)
+
+                    echo "Parsed YAML: ${result}"
+                }
+            }
+        }
+    }
+}
