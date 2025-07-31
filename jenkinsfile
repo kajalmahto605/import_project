@@ -13,7 +13,7 @@ pipeline {
                           - maven
                     """
 
-                    def parser = load("jenkins-libs/yaml/parseYaml.groovy")
+                    def parser = load("jenkis-libs/yaml/parseYaml.groovy")
                     def result = parser.parseYaml(yamlText)
 
                     echo "Parsed YAML: ${result}"
