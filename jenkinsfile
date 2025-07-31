@@ -2,30 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Parse YAML (Inline Text using parseYaml.groovy)') {
-            steps {
-                script {
-                    def yamlText = """
-                        name: Jenkins
-                        tools:
-                          - git
-                          - docker
-                          - maven
-                    """
-
-                    def parser = load("jenkis-libs/yaml/parseYaml.groovy")
-                    def result = parser.parseYaml(yamlText)
-
-                    echo "Parsed YAML (from text): ${result}"
-                }
-            }
-        }
-
-        stage('Parse YAML (From File using readYaml)') {
+        stage('Parse YAML from File') {
             steps {
                 script {
                     def config = readYaml file: 'config.yml'
-                    echo "Parsed YAML (from file): ${config}"
+                    echo "Parsed: ${config}"
                     echo "Name: ${config.name}"
                     echo "Tools: ${config.tools}"
                 }
